@@ -30,7 +30,8 @@ public class Main2Activity extends AppCompatActivity {
     MyAdapter adapter;
     ArrayList<String> states;
     String url = "https://tum-auditor.000webhostapp.com/get.php";
-    ArrayList<String> states_array,con_array,death_array,rec_array,act_array;
+    ArrayList<String> states_array,con_array,death_array,rec_array,
+            act_array,lat_array,long_array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +49,16 @@ public class Main2Activity extends AppCompatActivity {
                 String recovered = rec_array.get(i);
                 String deaths = death_array.get(i);
                 String active = act_array.get(i);
+                String lat = lat_array.get(i);
+                String longi = long_array.get(i);
                 Intent intent = new Intent(Main2Activity.this,MainActivity3.class);
                 intent.putExtra("s",name);
                 intent.putExtra("c",confirmed);
                 intent.putExtra("r",recovered);
                 intent.putExtra("d",deaths);
                 intent.putExtra("a",active);
+                intent.putExtra("l",lat);
+                intent.putExtra("lo",longi);
                 startActivity(intent);
             //    Toast.makeText(Main2Activity.this, confirmed, Toast.LENGTH_SHORT).show();
             }
@@ -102,6 +107,8 @@ public class Main2Activity extends AppCompatActivity {
                     death_array = new ArrayList<String>();
                     rec_array = new ArrayList<String>();
                     act_array = new ArrayList<String>();
+                    lat_array = new ArrayList<String>();
+                    long_array = new ArrayList<String>();
                     for (int i=0;i< ja.length();i++){
                         JSONObject json_object = ja.getJSONObject(i);
                         String state_name = json_object.getString("states");
@@ -109,11 +116,15 @@ public class Main2Activity extends AppCompatActivity {
                         String r = json_object.getString("recovered");
                         String d = json_object.getString("deaths");
                         String a = json_object.getString("active");
+                        String l = json_object.getString("lat");
+                        String lo = json_object.getString("longi");
                         states_array.add(state_name);
                         con_array.add(c);
                         rec_array.add(r);
                         death_array.add(d);
                         act_array.add(a);
+                        lat_array.add(l);
+                        long_array.add(lo);
                     }
                 //    Toast.makeText(Main2Activity.this, ""+states_array, Toast.LENGTH_SHORT).show();
                     adapter = new MyAdapter(Main2Activity.this,states_array);
