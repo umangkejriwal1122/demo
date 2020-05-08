@@ -1,147 +1,111 @@
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.os.SystemClock;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Main2Activity extends AppCompatActivity {
-
-    ListView lv;
-    MyAdapter adapter;
-    ArrayList<String> states;
-    String url = "https://tum-auditor.000webhostapp.com/get.php";
-    ArrayList<String> states_array,con_array,death_array,rec_array,
-            act_array,lat_array,long_array;
-
+public class MainActivity extends AppCompatActivity implements LocationListener {
+    TextView lat,longi,accu,time,cp,tp;
+    long i,f,t;
+    LocationManager lm;
+    List<String> list;
+    String[] per = new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        lv = findViewById(R.id.list);
-        states = new ArrayList<String>();
-        getData();
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TextView tv = view.findViewById(R.id.textView);
-                String name = tv.getText().toString();
-                String confirmed = con_array.get(i);
-                String recovered = rec_array.get(i);
-                String deaths = death_array.get(i);
-                String active = act_array.get(i);
-                String lat = lat_array.get(i);
-                String longi = long_array.get(i);
-                Intent intent = new Intent(Main2Activity.this,MainActivity3.class);
-                intent.putExtra("s",name);
-                intent.putExtra("c",confirmed);
-                intent.putExtra("r",recovered);
-                intent.putExtra("d",deaths);
-                intent.putExtra("a",active);
-                intent.putExtra("l",lat);
-                intent.putExtra("lo",longi);
-                startActivity(intent);
-            //    Toast.makeText(Main2Activity.this, confirmed, Toast.LENGTH_SHORT).show();
-            }
-        });
+        setContentView(R.layout.activity_main);
+        lat=findViewById(R.id.latitude);
+        longi=findViewById(R.id.longitude);
+        time=findViewById(R.id.time);
+        accu=findViewById(R.id.accuracy);
+        cp=findViewById(R.id.cp);
+        tp=findViewById(R.id.tp);
+        lm = (LocationManager)getSystemService(LOCATION_SERVICE);
+        checkPermissions();
     }
 
     @Override
-    public void onBackPressed() {
-        AlertDialog.Builder ad = new AlertDialog.Builder(Main2Activity.this);
-        ad.setTitle("Exit Confirmation");
-        ad.setMessage("Are you sure ?");
-        ad.setIcon(R.mipmap.exit);
-        ad.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                finish();
+    protected void onResume() {
+        StringBuffer sb = new StringBuffer();
+        Criteria c = new Criteria();
+        c.setAccuracy(Criteria.ACCURACY_COARSE);
+        list = lm.getProviders(c,true);  /// gps,network
+        if(list.isEmpty()){
+            tp.setText("No Providers Available");
+        }
+        else{
+            for(String x:list){
+                sb.append(x).append(",");
+                lm.requestSingleUpdate(x,MainActivity.this,null);
             }
-        });
-        ad.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-        ad.setNeutralButton("May Be", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-        ad.show();
-      //  super.onBackPressed();
+            tp.setText("Total Providers -"+sb);
+        }
+        i = SystemClock.uptimeMillis();
+        super.onResume();
     }
 
-    private void getData() {
-        RequestQueue rq = Volley.newRequestQueue(Main2Activity.this);
-        StringRequest sr = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-              //  Toast.makeText(Main2Activity.this, response, Toast.LENGTH_SHORT).show();
-                try {
-                    JSONObject jo = new JSONObject(response);
-                    JSONArray ja =jo.getJSONArray("covid");
-                    states_array = new ArrayList<String>();
-                    con_array = new ArrayList<String>();
-                    death_array = new ArrayList<String>();
-                    rec_array = new ArrayList<String>();
-                    act_array = new ArrayList<String>();
-                    lat_array = new ArrayList<String>();
-                    long_array = new ArrayList<String>();
-                    for (int i=0;i< ja.length();i++){
-                        JSONObject json_object = ja.getJSONObject(i);
-                        String state_name = json_object.getString("states");
-                        String c = json_object.getString("confirmed");
-                        String r = json_object.getString("recovered");
-                        String d = json_object.getString("deaths");
-                        String a = json_object.getString("active");
-                        String l = json_object.getString("lat");
-                        String lo = json_object.getString("longi");
-                        states_array.add(state_name);
-                        con_array.add(c);
-                        rec_array.add(r);
-                        death_array.add(d);
-                        act_array.add(a);
-                        lat_array.add(l);
-                        long_array.add(lo);
-                    }
-                //    Toast.makeText(Main2Activity.this, ""+states_array, Toast.LENGTH_SHORT).show();
-                    adapter = new MyAdapter(Main2Activity.this,states_array);
-                    lv.setAdapter(adapter);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+    @Override
+    public void onLocationChanged(Location location) {
+        lat.setText("Latitude - "+location.getLatitude());
+        longi.setText("Longitude - "+location.getLongitude());
+        accu.setText("Accuracy - "+location.getAccuracy());
+        cp.setText("Current Provider - "+location.getProvider());
+        f = SystemClock.uptimeMillis();
+        t = (f-i)/1000;  /// convert to secs
+        time.setText("Time "+t+" Secs");
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for (String p : per) {
+            result = ContextCompat.checkSelfPermission(MainActivity.this, p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Main2Activity.this, "Error", Toast.LENGTH_SHORT).show();
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(MainActivity.this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), 100);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (requestCode == 100) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // do something
             }
-        });
-        sr.setShouldCache(false);
-        sr.setRetryPolicy(new DefaultRetryPolicy(20*1000,
-                0,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        rq.add(sr);
+            return;
+        }
     }
 }
