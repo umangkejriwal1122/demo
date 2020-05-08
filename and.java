@@ -1,5 +1,8 @@
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -45,9 +48,44 @@ public class Main2Activity extends AppCompatActivity {
                 String recovered = rec_array.get(i);
                 String deaths = death_array.get(i);
                 String active = act_array.get(i);
-                Toast.makeText(Main2Activity.this, confirmed, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Main2Activity.this,MainActivity3.class);
+                intent.putExtra("s",name);
+                intent.putExtra("c",confirmed);
+                intent.putExtra("r",recovered);
+                intent.putExtra("d",deaths);
+                intent.putExtra("a",active);
+                startActivity(intent);
+            //    Toast.makeText(Main2Activity.this, confirmed, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder ad = new AlertDialog.Builder(Main2Activity.this);
+        ad.setTitle("Exit Confirmation");
+        ad.setMessage("Are you sure ?");
+        ad.setIcon(R.mipmap.exit);
+        ad.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        ad.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        ad.setNeutralButton("May Be", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        ad.show();
+      //  super.onBackPressed();
     }
 
     private void getData() {
