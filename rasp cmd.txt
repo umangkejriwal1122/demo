@@ -1,0 +1,101 @@
+Default Username and Password is:
+
+username: pi
+password: raspberry
+
+sudo apt-get update
+sudo apt-get install python3
+ls
+sudo mkdir umang  // create directory
+sudo chmod 777 umang   //make folder writable
+sudo nano led.py   //create new file
+sudo chmod -R 777 led.py   //make file writable
+sudo python3 led.py   //run python file
+sudo shutdown -h now
+ctrl+z -- out
+
+pinout //board details
+
+
+
+dht library
+
+sudo apt-get install git-core
+sudo apt-get update
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+cd Adafruit_Python_DHT
+ls
+sudo apt-get install build-essential python-dev
+sudo python3 setup.py install
+
+
+Adafruit
+
+git clone https://github.com/adafruit/Adafruit_IO_Python.git
+cd Adafruit_IO_Python
+ls
+sudo python3 setup.py install
+
+
+
+vnc viewer
+
+sudo apt-get update
+sudo apt-get install tightvncserver
+sudo vncserver :1   // port 1
+
+// chrome problem in vnc
+
+sudo apt-get remove chromium-browser
+sudo apt-get autoremove
+sudo apt update
+sudo apt-get install chromium-browser
+
+
+// remote control
+
+https://www.dataplicity.com/
+
+su pi
+
+
+smtp mail
+
+sudo apt-get update
+sudo apt-get install ssmtp
+sudo apt-get install mailutils
+
+
+flask
+To keep everything organized, start by creating a new folder:
+pi@raspberrypi ~ $ mkdir web-server
+pi@raspberrypi ~ $ cd web-server
+pi@raspberrypi:~/web-server $
+
+Create a new file called app.py.
+pi@raspberrypi:~/web-server $ nano app.py
+
+Create a new folder called templates:
+pi@raspberrypi:~/web-server $ mkdir templates
+pi@raspberrypi:~/web-server $ cd templates
+pi@raspberrypi:~/web-server/templates $
+
+Create a new file called main.html.
+pi@raspberrypi:~/web-server/templates $ nano main.html
+
+ps -fA | grep python
+sudo kill 2714
+
+
+
+
+
+
+
+
+
+
+
+
+
+
