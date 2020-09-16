@@ -66,6 +66,24 @@ sudo apt-get install ssmtp
 sudo apt-get install mailutils
 
 
+local web server
+sudo apt-get install apache2
+sudo apt-get install php
+sudo apt-get install wiringpi
+
+gpio -g mode 4 out
+gpio -g write 4 1
+
+cd /var/www/html
+sudo nano on.sh
+sudo nano off.sh
+sudo chmod 777 /var/www/html/on.sh
+sudo chmod 777 /var/www/html/off.sh
+
+<?php
+exec('sh on.sh');
+?>
+
 flask
 To keep everything organized, start by creating a new folder:
 pi@raspberrypi ~ $ mkdir web-server
