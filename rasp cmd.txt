@@ -106,6 +106,26 @@ sudo kill 2714
 
 
 
+mysql
+
+sudo apt install mariadb-server
+sudo mysql_secure_installation
+sudo apt install phpmyadmin
+
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+sudo a2enconf phpmyadmin.conf
+sudo service apache2 reload
+sudo systemctl restart apache2
+
+
+sudo mysql -uroot -p
+CREATE USER 'howrah_user'@'localhost' IDENTIFIED BY 'howrah@!!@@';
+GRANT ALL PRIVILEGES ON *.* TO 'howrah_user'@'localhost';
+
+sudo apt-get -y install python3-mysql.connector
+
+
+
 
 
 
