@@ -1,0 +1,7 @@
+open(filename,mode)
+mode
+r - Read - Default Value - Opens a file for reading. Error if the file does not exist
+a - Append - Opens the file for appending. Creates the file if it does not exist.
+w = Opens the file for writing. Creates the file if it does not exist.
+x = Creates the specified file, returns an error if the file exist.
+
