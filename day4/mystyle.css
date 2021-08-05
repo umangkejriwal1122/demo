@@ -1,0 +1,17 @@
+h4{
+    color:#B84418;
+    text-align: center;
+}
+p{
+    color:#123456;   /* comment */
+    font-size: 30px; 
+}
+#a1{
+    color:darkgoldenrod;
+}
+.c1{
+    font-size: 50px;
+}
+p.c1{
+    text-align: center;
+}
