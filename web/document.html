@@ -1,0 +1,29 @@
+<html>
+    <title>JavaScript</title>
+    <head>
+        <script language = "javascript" type="text/javascript">
+           function print(){
+               var data = document.getElementById('greet').innerHTML;
+               alert(data);
+           } 
+           function print_text(){
+               document.getElementById('text').innerHTML = "Hi Everyone";
+           }
+           function clear(){
+               var a = document.getElementsById("welcome");
+               a.remove();
+           }  
+        </script>
+    </head>
+    <body>
+        <p id = "welcome">Welcome to my Website</p>
+        <p id = "greet">Good evening</p>
+        <p id = "text"></p>
+        <button onclick="print();">Print Name</button>
+        <button onclick="print_text();">Print Text</button>
+        <button onclick="clear();">Clear</button>
+        <script>
+            
+        </script>
+    </body>
+</html>

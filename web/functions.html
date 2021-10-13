@@ -1,0 +1,47 @@
+<html>
+    <title>JavaScript</title>
+    <head>
+        <script language = "javascript" type="text/javascript">
+            function greeting(){
+                document.write("Good Afternoon");
+            }
+            function add(a,b){
+                var c = a+b;
+                document.write("The sum is "+c);
+            }
+            function greet(a,b="Hello "){
+                var c = b + a;
+                document.write(c);
+            }
+            function print(a,b){
+                var c = a+b;
+                return c;
+            }
+            function demo(){
+                var result = print(30,40);
+                document.write(result);
+            }
+            function redirect(){
+                window.location = "http://www.google.com";
+            }
+            function redirect_new(){
+               // window.open("http://www.google.com","_self");
+                window.open("http://www.google.com","_blank");
+            }
+            function time(){
+                document.write("You will be redirected in 5 secs");
+                setTimeout('redirect_new()',5000);
+            }
+            
+        </script>
+    </head>
+    <body>
+        <button onclick="greeting();">Click Here</button>
+        <button onclick="add(20,30);">Add</button>
+        <button onclick="greet('Umang');">Greet</button>
+        <button onclick="demo();">Click</button>
+        <button onclick="redirect();">Google</button>
+        <button onclick="redirect_new();">Google New</button>
+        <button onclick="time();">Redirect</button>
+    </body>
+</html>

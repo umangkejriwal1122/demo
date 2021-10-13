@@ -1,0 +1,28 @@
+<html>
+    <title>JavaScript</title>
+    <head>
+        <script language = "javascript" type="text/javascript">
+            function warning(){
+                alert("This is an alert dialog box");
+            }
+            function confirmation(){
+                var result = confirm("Are your sure to open Google?");
+                if (result == true){
+                    window.open("http://www.google.com","_blank");
+                }
+                else{
+                    alert("You pressed Cancel");
+                }
+            }
+            function getData(){
+                var data = prompt("Enter your name :","Umang");
+                alert("You have entered "+data);
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="warning();">Alert</button>
+        <button onclick="confirmation();">Confirm</button>
+        <button onclick="getData();">Prompt</button>
+    </body>
+</html>
