@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+</head>
+<body>
+    <center>
+        <h1>This is a Basic Calculator</h1>
+        <form method="post" action="?status=true">
+            {% csrf_token %}
+        <input type = "number" placeholder="Enter First Number" name="num1" step=".01"/>
+        <input type = "number" placeholder="Enter First Number" name="num2" step=".01"/>
+        <input type = "submit" value="ADD"/>
+        </form>
+            {% if result != "Null" %}
+            <h3> Result : {{result}} </h5>
+            {% endif %}
+    </center>
+</body>
+</html>
