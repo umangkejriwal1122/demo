@@ -1,0 +1,30 @@
+Full Stack Web Development
+
+Webpage  - Hypertext Document which can be opened through a browser which displays some information
+
+Hypertext - where text can be linked to another text or a document
+
+HTML - Hyper Text Markup Language
+
+Website - Colection of one or more than webpage
+
+Web Development - A technique or process to make a working Website
+
+Full Stack - We know to design both - frontend and backend
+
+Frontend - HTML, CSS, Javascript,angularjs
+Backend - Python,php,perl,dotnet,expressjs,nodejs
+Database - mysql,sql,mongodb,sqlite,oracle
+
+MEAN | MERN | LAMP | LEMP
+
+MEAN - Mongodb,EXpressJS(back),Angular(Front),Nodejs(Backend) - Web App
+MERN - Mongodb,EXpressJS(back),ReactJS,Nodejs - Mobile App
+LAMP - Linux,Apache,MySql,Php/Perl
+LEMP - Linux,NGINX(Engine-X),MySql,Php/Perl
+
+XAMPP  | VSCODE - IDE
+
+Apache | MySql
+
+
