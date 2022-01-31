@@ -1,0 +1,58 @@
+<html>
+    <title>Functions in Javascript</title>
+    <head>
+        <script>
+            function greeting(){
+                document.write("Good Afternoon<br>");
+            }
+            function add(a,b){
+                var c = a+b;
+                document.write("The addition is "+c+"<br>");
+            }
+            function operate(a,b,operator="+"){
+                var c = 0;
+                switch(operator){
+                    case "+" : c = a+b;
+                    document.write("The sum is "+c+"<br>");
+                    break;
+
+                    case "-" : c = a-b;
+                    document.write("The difference is "+c+"<br>");
+                    break;
+
+                    case "*" : c = a*b;
+                    document.write("The product is "+c+"<br>");
+                    break;
+
+                    case "/" : c = a/b;
+                    document.write("The division is "+c+"<br>");
+                    break;
+                    
+                }
+            }
+            function test(a,b){
+                var result = a+b;
+                return result;
+            }
+            function openGoogle(){
+                window.open("http://www.google.com","_blank");
+            }
+            function redirect(){
+                document.write("You will be redirected to Google in 5 secs");
+                setTimeout('openGoogle()',5000);
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            greeting();
+            add(3,6);
+            operate(2,7,"/");
+            var data = test(12,45);
+            document.write(data);
+        </script>
+        <br>
+        <button onclick="openGoogle();">Go to Google</button>
+        <button onclick="redirect();">Redirect</button>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <title>Geo Location Using Javascript</title>
+    <body>
+        <h4>User Location</h4>
+        <p><button onclick="getLocation();">Fetch Location</button></p>
+        <p id = "location"></p>
+        <script>
+            var data = document.getElementById('location');
+            function getLocation(){
+                if(navigator.geolocation){
+                    try{
+                    navigator.geolocation.getCurrentPosition(showMyLocation);
+                    }
+                    catch{
+                        data.innerHTML = "Some problem";
+                    }
+                }
+                else{
+                    data.innerHTML = "Not supported";
+                }
+                
+            }
+            function showMyLocation(cds){
+                data.innerHTML = "Latitude - "+cds.coords.latitude + 
+                "<br>Longitude - "+cds.coords.longitude;
+            }
+        </script>
+    </body>
+</html>

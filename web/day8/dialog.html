@@ -1,0 +1,29 @@
+<html>
+    <title>Dialogs in Javascript</title>
+    <head>
+        <script>
+            function warning(){
+                alert("This is alert dialog box");
+            }
+            function confirmation(){
+                var result = confirm("Are you sure to open Google Website?");
+                //document.write(result);
+                if(result == true){
+                    window.open("http://www.google.com","_blank");
+                }
+                else{
+                    alert("you pressed cancel");
+                }
+            }
+            function getData(){
+                var data = prompt("Enter your name :","Umang");
+                alert("Your name is "+data);
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="warning();">Show Alert Dialog</button>
+        <button onclick="confirmation();">Open Google</button>
+        <button onclick="getData();">Show Prompt</button>
+    </body>
+</html>

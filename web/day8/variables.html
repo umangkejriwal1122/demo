@@ -1,0 +1,24 @@
+<html>
+    <title>Variables in Javascript</title>
+    <body>
+        <script>
+            var name = "Umang";
+            var age = 30;
+            var status = false;
+            var place = "Delhi";   // global variable
+            document.write("<p>The name is "+name+"</p>");
+            document.write("<p>The age is "+age+"</p>");
+            document.write("<p>The status is "+status+"</p>");
+            function print_text(){
+                var place = "Patna";   // local variable
+                document.write("<p>The place is "+place+"</p>");
+            }
+            print_text();
+            document.write(typeof name);
+            document.write("<br>");
+            document.write(typeof age);
+            document.write("<br>");
+            document.write(typeof status);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+    <title>Document in Javascript</title>
+    <head>
+        <script>
+            function print(){
+                document.getElementById('text').innerHTML = "Umang Kejriwal";
+            }
+            function fetch(){
+                var data = document.getElementById('welcome').innerHTML;
+                alert(data);
+            }
+            function clear(){
+                var a = document.getElementById("text");
+                a.remove();
+            }
+        </script>
+    </head>
+    <body>
+        <p id = "welcome">Welcome to my Website</p>
+        <p id = "greet">Good Afternoon</p>
+        <p id = "text"></p>
+        <button onclick="print();">Print Name</button>
+        <button onclick="fetch();">Fetch</button>
+        <button onclick="clear();">Clear</button>
+    </body>
+</html>

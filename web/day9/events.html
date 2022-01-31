@@ -1,0 +1,30 @@
+<html>
+    <title>Events in Javascript</title>
+    <head>
+        <script>
+            function form(){
+               // document.getElementById('form').innerHTML = "Form Submitted";
+                document.write("Form Submiited");
+            }
+            function print(){
+                document.write("Hello Everyone !!");
+            }
+            function over(){
+                document.getElementById('form').innerHTML = "Mouse is over text";
+            }
+            function out(){
+                document.getElementById('form').innerHTML = "Mouse is out from text";
+            }
+        </script>
+    </head>
+    <body>
+        <form method="post" onsubmit="form();">
+            <input type = "submit">
+        </form>
+        <p id = "form"></p>
+        <button onclick="print();">Click Here</button>
+        <div onmouseover="over();" onmouseout="out();">
+            <h1>My name is Umang</h1>
+        </div>
+    </body>
+</html>
