@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <form action="test.php" method="get">
+        <p>
+            Enter Name*:
+            <input type="text" name="a1" value="Umang" placeholder="Enter Name"
+            maxlength="20" size="20" required>
+        </p>
+        <p>
+            Enter Email*:
+            <input type="email" name="a2" value="" placeholder="Enter Email"
+            maxlength="20" size="20" required>
+        </p>
+        <p>
+            Enter Mobile Number*:
+            <input type="number" name="a3" value="" placeholder="Enter Mobile"
+            maxlength="10" required>
+        </p>
+        <p>
+            Enter Password*:
+            <input type="password" name="a4" value="" placeholder="Enter Password"
+            maxlength="30" required>
+        </p>
+        <p>
+            Enter Address:<br>
+            <textarea name="a5" rows="4" cols="20">Enter Your Address</textarea>
+        </p>
+        <p>
+            Choose Subjects:
+            <input type="checkbox" name="a6" value="maths">Maths
+            <input type="checkbox" name="a7" value="science" checked>Science
+            <input type="checkbox" name="a8" value="sst">SST
+            <input type="checkbox" name="a9" value="Computer">Computer
+        </p>
+        <p>
+            Gender:
+            <input type="radio" name="a10" value="male">Male
+            <input type="radio" name="a10" value="female" checked>Female
+        </p>
+        <p>
+            Select State:
+            <select name="a11">
+                <option value="delhi">Delhi</option>
+                <option value="up">Uttar Pradesh</option>
+                <option value="wb">West Bengal</option>
+                <option value="bihar">Bihar</option>
+                <option value="tn">Tamil Nadu</option>
+            </select>
+        </p>
+        <p>
+            Upload Photograph:
+            <input type="file" name = "a12" accept="image/*">
+        </p>
+        <p>
+            <input type="date" name="a13" min="2015-01-01" max="2025-01-01">
+            <input type="time" name="a14">
+        </p>
+        <p>
+            <input type="hidden" name="a15" value="28372836">
+        </p>
+        <p>
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+        </p>
+    </form>
+</body>
+</html>

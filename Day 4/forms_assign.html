@@ -1,0 +1,104 @@
+<html>
+    <title>Forms in HTML</title>
+    <body>
+        <style>
+            th{
+                text-align: left;
+            }
+            #but{
+                text-align: center;
+            }
+        </style>
+        <center>
+            <form action = "demo.php" method = "GET" >
+                <table width = "50%" cellspacing = "10">
+                    <tr>
+                        <th>
+                            Enter Name*
+                        </th>
+                        <td>
+                            <input type = "text" name = "name" value = "Umang" placeholder="Enter Name"
+                            required size = "30" maxlength = "20" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Enter Email* :
+                        </th>
+                        <td>
+                            <input type = "email" name = "email" placeholder="Enter Email"
+                        required size = "30" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Enter Password* :
+                        </th>
+                        <td>
+                            <input type = "password" name = "pass" placeholder="Enter Password"
+                        required size = "30" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Enter Mobile* :
+                        </th>
+                        <td>
+                            <input type = "number" name = "mobile" placeholder="Enter Mobile"
+                        required size = "30" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Enter Address :
+                        </th>
+                        <td>
+                            <textarea name =  "address" rows = "3" cols="40">Enter Address Here !!</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Choose Subjects :
+                        </th>
+                        <td>
+                            <input type = "checkbox" name = "sub1" value="maths">Maths
+                            <input type = "checkbox" name = "sub2" value="science" checked>Science
+                            <input type = "checkbox" name = "sub3" value="computer">Computer
+                            <input type = "checkbox" name = "sub4" value="sst">SST
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Gender :
+                        </th>
+                        <td>
+                            <input type = "radio" name = "gender" value="male" checked>Male
+                            <input type = "radio" name = "gender" value="female">Female
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>
+                            Select State : 
+                        </th>
+                        <td>
+                            <select name = "state">
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="up">Uttar Pradesh</option>
+                                <option value="wb">West Bengal</option>
+                                <option value="bihar">Bihar</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th colspan="2" id = "but">
+                            <input type = "submit" value="Register">
+                            <input type = "reset" value="Reset">
+                        </th>
+                    </tr>
+                </table>
+        </form>
+    </center>
+    </body>
+</html>

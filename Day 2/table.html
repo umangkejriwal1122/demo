@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables in HTML</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Roll No.</th>
+            <th>Student Name</th>
+            <th>Percentage</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Aakash</td>
+            <td>90%</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Bob</td>
+            <td>95%</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Catherine</td>
+            <td>98%</td>
+        </tr>
+    </table>
+
+    <table border="1" width = "100%" cellpadding = "5" cellspacing = "0">
+        <tr>
+            <th>Roll No.</th>
+            <th>Student Name</th>
+            <th>Percentage</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Aakash</td>
+            <td>90%</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Bob</td>
+            <td>95%</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Catherine</td>
+            <td>98%</td>
+        </tr>
+    </table>
+    <br><br>
+    <table border="1" width = "100%" cellpadding = "5" cellspacing = "0">
+        <caption>My Table Caption</caption>
+        <tr>
+            <th colspan="4">Student Information</th>
+        </tr>
+        <tr>
+            <th>Roll No.</th>
+            <th>Student Name</th>
+            <th>Percentage</th>
+            <th>School Name</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Aakash</td>
+            <td>90%</td>
+            <td rowspan="3">DPS - New Delhi</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Bob</td>
+            <td>95%</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Catherine</td>
+            <td>98%</td>
+        </tr>
+    </table>
+    <br><br>
+    <table border="1" width = "100%" cellpadding = "5" cellspacing = "0">
+        <caption>My Table Caption</caption>
+        <tfoot>
+            <tr>
+                <th colspan="4">End of the Table</th>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr>
+                <th colspan="4">Student Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Roll No.</th>
+                <th>Student Name</th>
+                <th>Percentage</th>
+                <th>School Name</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Aakash</td>
+                <td>90%</td>
+                <td rowspan="3">DPS - New Delhi</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Bob</td>
+                <td>95%</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Catherine</td>
+                <td>98%</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
