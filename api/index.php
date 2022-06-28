@@ -1,3 +1,6 @@
+<?php  
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,10 +33,17 @@
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="index.html">Home</a></li>
-									<li><a href="about.html">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="news.html">News</a></li>
 									<li><a href="contact.html">Contact</a></li>
+									<?php 
+										if(isset($_SESSION['name'])){
+											echo '<li><a style="color:white;">Hello <i>'.$_SESSION['name'].'</i></a></li>';
+											echo '<li><a href="logout.php">Logout</a></li>';
+										}
+										else{
+											echo '<li><a href="login.php">Login</a></li>';
+										}
+									?>
+									
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
