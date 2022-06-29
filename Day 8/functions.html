@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <script>
+        function f1(){
+            alert("Hi");
+        }
+        function add(x,y){
+            alert(x+y);
+        }
+        function add_return(x,y){
+            return(x+y);
+        }
+        function add_default(x=10,y=10){
+            alert(x+y);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="f1();">Function Without Argument</button>
+    <button onclick="add(10,20);">Function With Argument</button>
+    <button onclick="add_default();">Function With Default Argument</button>
+    <script>
+        var a = add_return(10,2);
+        document.write(a);
+    </script>
+</body>
+</html>

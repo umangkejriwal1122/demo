@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script>
+        function form(){
+            var name = document.getElementById('name').value;
+            alert(name);
+        }
+        function print_email(){
+            var email = document.getElementById('email').value;
+            document.getElementById('myemail').innerHTML = email;
+        }
+        function checkstate(){
+            var state = document.getElementById('state').value;
+            document.getElementById('mystate').innerHTML = "You selected "+state;
+        }
+    </script>
+</head>
+<body>
+    <form method="post" onsubmit="form();">
+    <input type="text" id = "name" placeholder="Enter Name">
+    <input type="email" id = "email" placeholder="Enter Email" oninput="print_email();">
+    <select id="state" onchange="checkstate();">
+        <option value="Bihar">Bihar</option>
+        <option value="UP">UP</option>
+        <option value="West Bengal">West Bengal</option>
+    </select>
+    <input type="submit">
+    <p id = "myemail"></p>
+    <p id = "mystate"></p>
+    </form>
+</body>
+</html>

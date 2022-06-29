@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link</title>
+    <script>
+        function openGoogle(){
+            window.open("http://www.google.com","_blank");
+        }
+        function redirect(){
+            document.write("You will be redirected to Google in 5 secs");
+            setTimeout('openGoogle();',5000);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="openGoogle()">Open Google</button>
+    <button onclick="redirect()">Redirect</button>
+</body>
+</html>

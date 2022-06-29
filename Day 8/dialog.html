@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialogs</title>
+    <script>
+        function alertMessage(){
+            alert("This is a alert dialog box");
+        }
+        function confirmMessage(){
+            var result = confirm("Are you sure?");
+            if(result==true){
+                alert("You clicked for OK");
+            }
+            else{
+                alert("You clicked for Cancel");
+            }
+        }
+        function promptMessage(){
+            var name = prompt("Enter your name:");
+            alert("Your name is "+name);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="alertMessage();">Show Alert Box</button>
+    <button onclick="confirmMessage();">Show Confirm Box</button>
+    <button onclick="promptMessage();">Prompt Confirm Box</button>
+</body>
+</html>
