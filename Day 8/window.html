@@ -1,0 +1,22 @@
+<html>
+    <title>Window in Javascript</title>
+    <body>
+        <script>
+            document.write(window.location.href);
+            document.write("<br>");
+            document.write(window.location.hostname);
+            document.write("<br>");
+            document.write(window.location.pathname);
+            document.write("<br>");
+            document.write(window.location.protocol);
+            document.write("<br>");
+            document.write(window.location.port);
+            document.write("<br>");
+
+            function url(){
+                window.location.assign("http://www.google.com");
+            }
+        </script>
+        <button onclick="url();">Open New Url</button>
+    </body>
+</html>
